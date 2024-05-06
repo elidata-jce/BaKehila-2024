@@ -13,9 +13,11 @@ function App() {
   const db = getDb();
   return (
     <div className="App">
-      <img  src="https://stock.adobe.com/il/images/computer-learning-logo-designs-online-learning-logo-template-designs-vector-illustration/168461703"  alt="logo" />
-      <header className="App-header">
-        <Router>
+     
+
+      <header className="App-header">    
+        <Router> <img  src="logo.jpg" width="100" height="100" alt="logo" />
+
           <Routes>
             <Route path="/" element={<Layout/>}/>
          

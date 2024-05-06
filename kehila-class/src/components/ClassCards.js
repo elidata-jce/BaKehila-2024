@@ -10,28 +10,47 @@ function handleClick(projectName) {
 
 const ProjectCard = ({ teamLeaderName, projectName, imageUrl }) => {
 
-    const [appImage, setAppImage] = useState('https://via.placeholder.com/300');
+    // const [appImage, setAppImage] = useState('<h2>...Loading </h2>');
 
-    useEffect(() => {
-        const fetchImage = async () => {
-            const response = await fetch(imageUrl);
-            const blob = await response.blob();
-            const objectURL = URL.createObjectURL(blob);
-            console.log(objectURL ) ;
-            setAppImage(objectURL);
-        };
+    // // useEffect(() => {
+    // //     const fetchImage = async () => {
+    // //         const response = await fetch(imageUrl);
+    // //         const blob = await response.blob();
+    // //         const objectURL = URL.createObjectURL(blob);
+    // //         console.log(objectURL ) ;
+    // //         setAppImage(objectURL);
+    // //     };
 
-        fetchImage();
-    }, [imageUrl]);
+    // //     fetchImage();
+    // // }, []);
+
+    // useEffect(() => {
+    //     console.log("fetching image", imageUrl) ;
+
+    //     const fetchImage =  () => {
+    //          fetch(imageUrl, { mode: 'cors'})
+    //         .then (response => response.blob())
+    //         .then (blob => URL.createObjectURL(blob))
+    //         .then (objectURL => setAppImage(objectURL))
+    //         .catch (error => console.error(error));
+    //     }
+           
+    //     console.log(appImage ) ;
+    
+    //     fetchImage();
+
+    // }, [imageUrl]);
+
 
     return (
          <Card style={{ width: '18rem', border: 'blue'}}>
         
     
          <Card.Body>    
-           <Card.Img src={appImage} responsive />
+          
            <Card.Title>{projectName}</Card.Title>
             <Card.Subtitle>{teamLeaderName}</Card.Subtitle>
+            <Card.Img src={imageUrl} fluid="true" alt="missing image" />
            <Button variant="primary" onClick={()=>handleClick({projectName})}>Visit</Button>
            <div src={imageUrl} alt="Card image" />
          </Card.Body>
@@ -61,7 +80,7 @@ const ClassCards = () => {
                     key={index}
                     teamLeaderName={card.teamLeaderName}
                     projectName={card.projectName}
-                    imageUrl={card.imageUrl}
+                    imageUrl={card.imgUrl}
                 />
             ))}
         </div>
