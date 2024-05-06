@@ -16,7 +16,7 @@ function App() {
      
 
       <header className="App-header">    
-        <Router> <img  src="logo.jpg" width="100" height="100" alt="logo" />
+        <Router> <img  src="logo.png" width="100" height="100" alt="logo" />
 
           <Routes>
             <Route path="/" element={<Layout/>}/>
